@@ -1,6 +1,6 @@
 import { ArtPiecePreview } from "./ArtPiecePreview";
 
-export function ArtPieces({ pieces }) {
+export default function ArtPieces({ pieces }) {
   return (
     <ul>
       {pieces.map((piece) => {
