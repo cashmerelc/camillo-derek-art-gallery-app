@@ -59,7 +59,8 @@ export default function App({ Component, pageProps }) {
           {...pageProps}
           pieces={artPieces}
           artPiecesInfo={artPiecesInfo}
-          onFavorite={handleToggleFavorite}
+          isFavorite={artPiecesInfo.isFavorite}
+          onToggleFavorite={handleToggleFavorite}
         />
       ) : (
         <div>Loading...</div>
