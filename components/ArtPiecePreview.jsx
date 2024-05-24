@@ -10,7 +10,7 @@ export function ArtPiecePreview({ image, title, artist }) {
       </div>
 
       <h2>
-        "{title}" by {artist}
+        &quot;{title}&quot; by {artist}
       </h2>
     </>
   );
