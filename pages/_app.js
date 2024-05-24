@@ -1,9 +1,11 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { Layout } from "../components/Layout";
-import useState from "use-react-state";
+import React, { useState } from "react";
 
 export default function App({ Component, pageProps }) {
+  const [artPieces, setArtPieces] = useState([]);
+
   const fetcher = async (url) => {
     const res = await fetch(url);
 
@@ -25,12 +27,10 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
-  // console.log("data", data);
+  console.log("data", data);
 
   if (error) return <div>There was an error fetching the art pieces...</div>;
   if (isLoading) return <div>Loading...</div>;
-
-  const [artPieces, setArtPieces] = useState(data);
 
   return (
     <>
