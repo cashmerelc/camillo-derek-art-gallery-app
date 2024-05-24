@@ -2,6 +2,8 @@ import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { Layout } from "../components/Layout";
 import React, { useState } from "react";
+import { ArtPieces } from "../components/ArtPieces";
+import { Spotlight } from "@/components/Spotlight";
 
 export default function App({ Component, pageProps }) {
   const [artPieces, setArtPieces] = useState([]);
