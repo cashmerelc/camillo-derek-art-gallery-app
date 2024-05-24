@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export function ArtPiecePreview({ image, title, artist }) {
-  console.log(image, title, artist);
   return (
     <>
       <div className="art-piece-image-container">
