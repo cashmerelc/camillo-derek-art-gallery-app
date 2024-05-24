@@ -32,6 +32,12 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>There was an error fetching the art pieces...</div>;
   if (isLoading) return <div>Loading...</div>;
 
+  useEffect(() => {
+    if (data) {
+      setArtPieces(data);
+    }
+  }, [data]);
+
   return (
     <>
       <GlobalStyle />
