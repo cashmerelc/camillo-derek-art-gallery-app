@@ -35,6 +35,7 @@ export default function App({ Component, pageProps }) {
   if (isLoading) return <div>Loading...</div>;
 
   function handleToggleFavorite(slug) {
+    console.log("Favorite clicked");
     // See if the art piece is already in the array
     const info = artPiecesInfo.find((art) => art.slug === slug);
     if (info) {

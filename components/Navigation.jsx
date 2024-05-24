@@ -4,16 +4,13 @@ export function Navigation() {
   return (
     <ul>
       <li>
-        <Link href="/" />
-        Spotlight
+        <Link href="/">Spotlight</Link>
       </li>
       <li>
-        <Link href="/art-pieces" />
-        Art Pieces
+        <Link href="/art-pieces">Art Pieces</Link>
       </li>
       <li>
-        <Link href="/favorites" />
-        Favorites
+        <Link href="/favorites">Favorites</Link>
       </li>
     </ul>
   );
