@@ -1,9 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { Layout } from "../components/Layout";
-import React, { useState } from "react";
-import { ArtPieces } from "../components/ArtPieces";
-import { Spotlight } from "@/components/Spotlight";
+import React, { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const [artPieces, setArtPieces] = useState([]);
@@ -11,11 +9,8 @@ export default function App({ Component, pageProps }) {
   const fetcher = async (url) => {
     const res = await fetch(url);
 
-    // If the status code is not in the range 200-299,
-    // we still try to parse and throw it.
     if (!res.ok) {
       const error = new Error("An error occurred while fetching the data.");
-      // Attach extra info to the error object.
       error.info = await res.json();
       error.status = res.status;
       throw error;
@@ -29,22 +24,25 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
 
-  console.log("data", data);
-
-  if (error) return <div>There was an error fetching the art pieces...</div>;
-  if (isLoading) return <div>Loading...</div>;
-
   useEffect(() => {
     if (data) {
       setArtPieces(data);
     }
   }, [data]);
 
+  if (error) return <div>There was an error fetching the art pieces...</div>;
+  if (isLoading) return <div>Loading...</div>;
+
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} pieces={artPieces} />
-      <Layout></Layout>
+      {artPieces.length > 0 ? (
+        <Component {...pageProps} pieces={artPieces} />
+      ) : (
+        <div>Loading...</div>
+      )}
+
+      <Layout />
     </>
   );
 }
