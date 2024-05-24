@@ -1,5 +1,5 @@
-import { ArtPieces } from "../components/ArtPieces";
+import { Spotlight } from "../components/Spotlight";
 
-export default function HomePage({ pieces }) {
-  return <ArtPieces pieces={pieces} />;
+export default function SpotlightPage({ pieces }) {
+  return <Spotlight pieces={pieces} />;
 }
