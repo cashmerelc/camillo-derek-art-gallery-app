@@ -1,5 +1,6 @@
 import ArtPieces from "../../components/ArtPieces";
+import React from "react";
 
-export function ArtPiecesPage({ pieces }) {
+export default function ArtPiecesPage({ pieces }) {
   return <ArtPieces pieces={pieces} />;
 }
