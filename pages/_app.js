@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import { Layout } from "../components/Layout";
+import useState from "use-react-state";
 
 export default function App({ Component, pageProps }) {
   const fetcher = async (url) => {
@@ -29,10 +30,12 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>There was an error fetching the art pieces...</div>;
   if (isLoading) return <div>Loading...</div>;
 
+  const [artPieces, setArtPieces] = useState(data);
+
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} pieces={data} />
+      <Component {...pageProps} pieces={artPieces} />
       <Layout></Layout>
     </>
   );
