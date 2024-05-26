@@ -24,7 +24,6 @@ export default function App({ Component, pageProps }) {
     "https://example-apis.vercel.app/api/art",
     fetcher
   );
-  console.log(data);
   useEffect(() => {
     if (data) {
       setArtPieces(data);
@@ -35,39 +34,42 @@ export default function App({ Component, pageProps }) {
   if (isLoading) return <div>Loading...</div>;
 
   function handleToggleFavorite(slug) {
-    console.log("Favorite clicked");
+    console.log("Favorited slug:", slug);
+
     // See if the art piece is already in the array
     const info = artPiecesInfo.find((art) => art.slug === slug);
     if (info) {
       // If the art piece is already in the array, toggle the isFavorite value
-      const newInfo = artPiecesInfo.map((info) => {
-        info.slug = slug
-          ? { ...info, isFavorite: !info.isFavorite }
-          : info.isFavorite;
-      });
+      const newInfo = artPiecesInfo.map((pieceInfo) =>
+        pieceInfo.slug === slug
+          ? { ...pieceInfo, isFavorite: !pieceInfo.isFavorite }
+          : pieceInfo
+      );
+      console.log("newInfo when already favorited: ", newInfo);
+      setArtPiecesInfo(newInfo);
+    } else {
+      // If the art piece is not in the array already, add it with the favorite as true
+      const newInfo = [...artPiecesInfo, { slug, isFavorite: true }];
+      console.log("newInfo when first time favoriting: ", newInfo);
       setArtPiecesInfo(newInfo);
     }
-    // If the art piece is not in the array already, add it with the favorite as true
-    const newInfo = [...artPiecesInfo, { slug, isFavorite: true }];
-    setJokesInfo(newInfo);
   }
 
+  console.log("artPiecesInfo: ", artPiecesInfo);
+
   return (
-    <>
+    <Layout>
       <GlobalStyle />
       {artPieces.length > 0 ? (
         <Component
           {...pageProps}
           pieces={artPieces}
           artPiecesInfo={artPiecesInfo}
-          isFavorite={artPiecesInfo.isFavorite}
           onToggleFavorite={handleToggleFavorite}
         />
       ) : (
         <div>Loading...</div>
       )}
-
-      <Layout />
-    </>
+    </Layout>
   );
 }
