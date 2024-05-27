@@ -1,12 +1,20 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { CommentForm } from "@/components/CommentForm";
+import { Comments } from "@/components/Comments";
 
-export function ArtPieceDetails({ pieces }) {
+export function ArtPieceDetails({ pieces, artPiecesInfo, onSubmitComment }) {
   const router = useRouter();
   const { slug } = router.query;
   const currentPiece = pieces.find((piece) => piece.slug === slug);
   const { name, image } = currentPiece;
+  const comments = artPiecesInfo?.find(
+    (artPiece) => artPiece.slug === slug
+  )?.comments;
+  console.log("artPiecesInfo: ", artPiecesInfo);
+
+  console.log("Comments", comments);
   return (
     <>
       <Link href={"/art-pieces"}>
@@ -36,6 +44,9 @@ export function ArtPieceDetails({ pieces }) {
           </div>
         </div>
       </div>
+      {comments?.length > 0 ? <Comments comments={comments} /> : ""}
+
+      <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
     </>
   );
 }
