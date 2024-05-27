@@ -43,15 +43,14 @@ export default function App({ Component, pageProps }) {
           : artPiece
       );
       setArtPieces(newInfo);
+      console.log("afterClickIf", artPieces);
     } else {
       // If the art piece is not in the array already, add it with the favorite as true
       const newInfo = [...artPieces, { slug, isFavorite: true }];
       setArtPieces(newInfo);
-      console.log("artPieces:", artPieces);
+      console.log("afterClickElse", artPieces);
     }
   }
-
-
 
   function handleSubmitComment(slug, comment) {
     // See if the art piece is already in the array
@@ -76,9 +75,6 @@ export default function App({ Component, pageProps }) {
       setArtPieces(newInfo);
     }
   }
-
-  console.log("data: ", data);
-
 
   return (
     <Layout>
