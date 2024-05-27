@@ -7,9 +7,9 @@ export function ArtPiecePreview({
   image,
   title,
   artist,
+  artPiecesInfo,
   isFavorite,
   onToggleFavorite,
-  onSubmitComment,
 }) {
   return (
     <Link href={`./art-pieces/${slug}`}>
