@@ -51,7 +51,34 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  console.log("artPiecesInfo: ", artPieces);
+
+
+  function handleSubmitComment(slug, comment) {
+    // See if the art piece is already in the array
+    const info = artPieces.find((art) => art.slug === slug);
+    // If the art piece is in the array, add the submitted comments
+    if (info) {
+      const newInfo = artPieces.map((artPiece) => {
+        if (artPiece.slug === slug) {
+          if (artPiece.comments) {
+            return {
+              ...artPiece,
+              comments: [...artPiece.comments, comment],
+            };
+          } else {
+            return { ...artPiece, comments: [comment] };
+          }
+        }
+      });
+      setArtPieces(newInfo);
+    } else {
+      const newInfo = [...artPieces, { slug, comments: [comment] }];
+      setArtPieces(newInfo);
+    }
+  }
+
+  console.log("data: ", data);
+
 
   return (
     <Layout>
@@ -62,6 +89,7 @@ export default function App({ Component, pageProps }) {
           pieces={artPieces}
           artPieces={artPieces}
           onToggleFavorite={handleToggleFavorite}
+          onSubmitComment={handleSubmitComment}
         />
       ) : (
         <div>Loading...</div>

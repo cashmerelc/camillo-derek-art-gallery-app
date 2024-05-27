@@ -3,7 +3,6 @@ import { FavoriteButton } from "./FavoriteButton";
 import Link from "next/link";
 
 export function ArtPiecePreview({
-  piece,
   slug,
   image,
   title,
