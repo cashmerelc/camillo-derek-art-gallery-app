@@ -7,7 +7,6 @@ export function ArtPiecePreview({
   image,
   title,
   artist,
-  artPiecesInfo,
   isFavorite,
   onToggleFavorite,
 }) {

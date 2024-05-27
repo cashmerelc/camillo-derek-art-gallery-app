@@ -3,6 +3,25 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { CommentForm } from "@/components/CommentForm";
 import { Comments } from "@/components/Comments";
+import styled from "styled-components";
+
+const ColorPalette = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100px;
+`;
+
+const ColorItem = styled.li`
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  display: inline-block;
+  background-color: ${(props) => props.backgroundColor};
+`;
 
 export function ArtPieceDetails({ pieces, artPiecesInfo, onSubmitComment }) {
   const router = useRouter();
@@ -12,9 +31,8 @@ export function ArtPieceDetails({ pieces, artPiecesInfo, onSubmitComment }) {
   const comments = artPiecesInfo?.find(
     (artPiece) => artPiece.slug === slug
   )?.comments;
-  console.log("artPiecesInfo: ", artPiecesInfo);
+  console.log("Colors: ", currentPiece.colors);
 
-  console.log("Comments", comments);
   return (
     <>
       <Link href={"/art-pieces"}>
@@ -44,6 +62,13 @@ export function ArtPieceDetails({ pieces, artPiecesInfo, onSubmitComment }) {
           </div>
         </div>
       </div>
+      <ColorPalette>
+        <h4>Color Palette:</h4>
+        {currentPiece.colors.map((color, index) => {
+          return <ColorItem key={index} backgroundColor={color} />;
+          // <li key={index}>{color}</li>;
+        })}
+      </ColorPalette>
       {comments?.length > 0 ? <Comments comments={comments} /> : ""}
 
       <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
