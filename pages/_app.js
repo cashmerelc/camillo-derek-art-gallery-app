@@ -79,7 +79,7 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  // console.log("artPiecesInfo: ", artPiecesInfo);
+  console.log("data: ", data);
 
   return (
     <Layout>

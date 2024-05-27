@@ -20,6 +20,7 @@ export default function ArtPieces({ pieces, artPiecesInfo, onToggleFavorite }) {
               //     ?.comments
               // }
               artPiecesInfo={artPiecesInfo}
+              colors={pieces.colors}
               onToggleFavorite={() => onToggleFavorite(piece.slug)}
               onSubmitComment={() => onSubmitComment(piece.slug)}
             />
