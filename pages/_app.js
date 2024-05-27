@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 
 export default function App({ Component, pageProps }) {
   const [artPieces, setArtPieces] = useState([]);
-  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
 
   const fetcher = async (url) => {
     const res = await fetch(url);
@@ -34,52 +33,52 @@ export default function App({ Component, pageProps }) {
   if (isLoading) return <div>Loading...</div>;
 
   function handleToggleFavorite(slug) {
-    console.log("Favorited slug:", slug);
-
     // See if the art piece is already in the array
-    const info = artPiecesInfo.find((art) => art.slug === slug);
+    const info = artPieces.find((art) => art.slug === slug);
     if (info) {
       // If the art piece is already in the array, toggle the isFavorite value
-      const newInfo = artPiecesInfo.map((pieceInfo) =>
-        pieceInfo.slug === slug
-          ? { ...pieceInfo, isFavorite: !pieceInfo.isFavorite }
-          : pieceInfo
+      const newInfo = artPieces.map((artPiece) =>
+        artPiece.slug === slug
+          ? { ...artPiece, isFavorite: !artPiece.isFavorite }
+          : artPiece
       );
-      console.log("newInfo when already favorited: ", newInfo);
-      setArtPiecesInfo(newInfo);
+      setArtPieces(newInfo);
     } else {
       // If the art piece is not in the array already, add it with the favorite as true
-      const newInfo = [...artPiecesInfo, { slug, isFavorite: true }];
-      console.log("newInfo when first time favoriting: ", newInfo);
-      setArtPiecesInfo(newInfo);
+      const newInfo = [...artPieces, { slug, isFavorite: true }];
+      setArtPieces(newInfo);
+      console.log("artPieces:", artPieces);
     }
   }
 
+
+
   function handleSubmitComment(slug, comment) {
     // See if the art piece is already in the array
-    const info = artPiecesInfo.find((art) => art.slug === slug);
+    const info = artPieces.find((art) => art.slug === slug);
     // If the art piece is in the array, add the submitted comments
     if (info) {
-      const newInfo = artPiecesInfo.map((pieceInfo) => {
-        if (pieceInfo.slug === slug) {
-          if (pieceInfo.comments) {
+      const newInfo = artPieces.map((artPiece) => {
+        if (artPiece.slug === slug) {
+          if (artPiece.comments) {
             return {
-              ...pieceInfo,
-              comments: [...pieceInfo.comments, comment],
+              ...artPiece,
+              comments: [...artPiece.comments, comment],
             };
           } else {
-            return { ...pieceInfo, comments: [comment] };
+            return { ...artPiece, comments: [comment] };
           }
         }
       });
-      setArtPiecesInfo(newInfo);
+      setArtPieces(newInfo);
     } else {
-      const newInfo = [...artPiecesInfo, { slug, comments: [comment] }];
-      setArtPiecesInfo(newInfo);
+      const newInfo = [...artPieces, { slug, comments: [comment] }];
+      setArtPieces(newInfo);
     }
   }
 
   console.log("data: ", data);
+
 
   return (
     <Layout>
@@ -88,7 +87,7 @@ export default function App({ Component, pageProps }) {
         <Component
           {...pageProps}
           pieces={artPieces}
-          artPiecesInfo={artPiecesInfo}
+          artPieces={artPieces}
           onToggleFavorite={handleToggleFavorite}
           onSubmitComment={handleSubmitComment}
         />
