@@ -3,7 +3,6 @@ import { ArtPiecePreview } from "./ArtPiecePreview";
 
 export default function Favorites({ artPieces, onToggleFavorite }) {
   const favoritePieces = artPieces.filter((piece) => piece.isFavorite);
-
   if (favoritePieces.length === 0) {
     return <div>No favorites yet.</div>;
   }
@@ -17,7 +16,7 @@ export default function Favorites({ artPieces, onToggleFavorite }) {
             title={favoritePiece.name}
             artist={favoritePiece.artist}
             isFavorite={favoritePiece.isFavorite}
-            onToggleFavorite={onToggleFavorite}
+            onToggleFavorite={() => onToggleFavorite(favoritePiece.slug)}
           />
         </div>
       ))}

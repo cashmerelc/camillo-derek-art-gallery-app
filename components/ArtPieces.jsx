@@ -1,6 +1,6 @@
 import { ArtPiecePreview } from "./ArtPiecePreview";
 
-export default function ArtPieces({ pieces, artPiecesInfo, onToggleFavorite }) {
+export default function ArtPieces({ pieces, artPieces, onToggleFavorite }) {
   return (
     <ul>
       {pieces.map((piece) => {
@@ -12,14 +12,14 @@ export default function ArtPieces({ pieces, artPiecesInfo, onToggleFavorite }) {
               title={piece.name}
               artist={piece.artist}
               isFavorite={
-                artPiecesInfo?.find((artPiece) => artPiece.slug === piece.slug)
+                artPieces?.find((artPiece) => artPiece.slug === piece.slug)
                   ?.isFavorite
               }
               // comments={
               //   artPiecesInfo?.find((artPiece) => artPiece.slug === piece.slug)
               //     ?.comments
               // }
-              artPiecesInfo={artPiecesInfo}
+              artPieces={artPieces}
               colors={pieces.colors}
               onToggleFavorite={() => onToggleFavorite(piece.slug)}
               onSubmitComment={() => onSubmitComment(piece.slug)}

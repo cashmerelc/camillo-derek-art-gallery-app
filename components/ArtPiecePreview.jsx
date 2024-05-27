@@ -12,6 +12,8 @@ export function ArtPiecePreview({
 }) {
   return (
     <>
+
+
       <div className="art-piece-image-container">
         <Image src={image} alt={title} width={200} height={200} />
       </div>
