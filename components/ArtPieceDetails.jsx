@@ -5,6 +5,33 @@ import { CommentForm } from "@/components/CommentForm";
 import { Comments } from "@/components/Comments";
 import styled from "styled-components";
 
+const StyledDetailsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1024px;
+  align-self: center;
+`;
+
+const StyledDetailsInfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+`;
+
+const StyledDetailsInfoContainer_Headline = styled.div`
+display flex;
+`;
+
+const StyledDetailsInfoContainer_Details = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+
+const StyledDetailsContainer_Details_Category = styled.div`
+  font-weight: bold;
+`;
+
 const ColorPalette = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -12,7 +39,6 @@ const ColorPalette = styled.ul`
   padding: 0;
   margin: 0;
   width: 100%;
-  height: 100px;
 `;
 
 const ColorItem = styled.li`
@@ -37,37 +63,34 @@ export function ArtPieceDetails({ pieces, artPieces, onSubmitComment }) {
       <Link href={"/art-pieces"}>
         <Image src="/go-back-icon.png" width={20} height={20} alt="go back" />
       </Link>
-      <div className="art-piece-details_image-container">
+      <StyledDetailsContainer>
         <Image
           src={currentPiece.imageSource}
           alt="go back"
           width={500}
           height={500}
         />
-      </div>
-      <div className="art-piece-details_info-container">
-        <div className="art-piece-details_info-container_headline">
-          <h2>{currentPiece.name}</h2>
-          <h3>{currentPiece.artist}</h3>
-        </div>
-        <div className="art-piece-details_info-container_details">
-          <div className="art-piece-details_info-container_details_category-name">
-            <p>Year:</p>
-            <p>Genre:</p>
-          </div>
-          <div className="art-piece-details_info-container_details_category-value">
-            <p>{currentPiece.year}</p>
-            <p>{currentPiece.genre}</p>
-          </div>
-        </div>
-      </div>
-      <ColorPalette>
-        <h4>Color Palette:</h4>
-        {currentPiece.colors.map((color, index) => {
-          return <ColorItem key={index} backgroundColor={color} />;
-          // <li key={index}>{color}</li>;
-        })}
-      </ColorPalette>
+        <StyledDetailsInfoContainer>
+          <StyledDetailsInfoContainer_Headline>
+            <h2>{currentPiece.name}</h2>
+            <h3>{currentPiece.artist}</h3>
+          </StyledDetailsInfoContainer_Headline>
+          <StyledDetailsInfoContainer_Details>
+            <StyledDetailsContainer_Details_Category>
+              <p>Year:</p>
+              <p>Genre:</p>
+              <p>Colors:</p>
+            </StyledDetailsContainer_Details_Category>
+            <div className="art-piece-details_info-container_details_category-value">
+              <p>{currentPiece.year}</p>
+              <p>{currentPiece.genre}</p>
+              {currentPiece.colors.map((color, index) => {
+                return <ColorItem key={index} backgroundColor={color} />;
+              })}
+            </div>
+          </StyledDetailsInfoContainer_Details>
+        </StyledDetailsInfoContainer>
+      </StyledDetailsContainer>
       {comments?.length > 0 ? <Comments comments={comments} /> : ""}
 
       <CommentForm slug={slug} onSubmitComment={onSubmitComment} />

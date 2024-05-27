@@ -6,23 +6,23 @@ const StyledNavBar = styled.nav`
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  font-size: 18px;
+  right: 0;
+  font-size: 1rem;
   background-color: #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 10px;
+  align-items: center;
 `;
 
 const StyledNavList = styled.ul`
   display: flex;
   list-style-type: none;
+  justify-content: space-between;
 `;
 
 const StyledNavItem = styled.li`
   width: 30%;
   height: 40px;
   text-decoration: none;
-  align-content: center;
+  justify-content: space-around;
 `;
 
 const StyledLink = styled(Link)`
