@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FavoriteButton } from "./FavoriteButton";
+import { FavoriteButton } from "../FavoriteButton";
 export function Spotlight({ pieces, onToggleFavorite, isFavorite }) {
   const SpotlightSelection = pieces[Math.floor(Math.random() * pieces.length)];
   return (
