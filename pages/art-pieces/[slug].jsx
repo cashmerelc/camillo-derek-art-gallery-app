@@ -7,13 +7,13 @@ export default function ArtPieceDetailsPage({
   pieces,
   onToggleFavorite,
   onSubmitComment,
-  artPiecesInfo,
+  artPieces,
 }) {
   return (
     <>
       <ArtPieceDetails
         pieces={pieces}
-        artPiecesInfo={artPiecesInfo}
+        artPieces={artPieces}
         onToggleFavorite={onToggleFavorite}
         onSubmitComment={onSubmitComment}
       />
