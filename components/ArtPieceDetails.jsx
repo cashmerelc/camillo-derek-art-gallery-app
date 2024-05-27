@@ -23,15 +23,14 @@ const ColorItem = styled.li`
   background-color: ${(props) => props.backgroundColor};
 `;
 
-export function ArtPieceDetails({ pieces, artPiecesInfo, onSubmitComment }) {
+export function ArtPieceDetails({ pieces, artPieces, onSubmitComment }) {
   const router = useRouter();
   const { slug } = router.query;
   const currentPiece = pieces.find((piece) => piece.slug === slug);
   const { name, image } = currentPiece;
-  const comments = artPiecesInfo?.find(
+  const comments = artPieces?.find(
     (artPiece) => artPiece.slug === slug
   )?.comments;
-  console.log("Colors: ", currentPiece.colors);
 
   return (
     <>

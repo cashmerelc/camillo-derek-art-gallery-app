@@ -67,6 +67,8 @@ export default function App({ Component, pageProps }) {
           } else {
             return { ...artPiece, comments: [comment] };
           }
+        } else {
+          return artPiece;
         }
       });
       setArtPieces(newInfo);
