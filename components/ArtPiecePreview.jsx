@@ -12,14 +12,16 @@ export function ArtPiecePreview({
 }) {
   return (
     <>
+
+
+      <div className="art-piece-image-container">
+        <Image src={image} alt={title} width={200} height={200} />
+      </div>
       <FavoriteButton
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
       />
       <Link href={`./art-pieces/${slug}`}>
-        <div className="art-piece-image-container">
-          <Image src={image} alt={title} width={200} height={200} />
-        </div>
         <h2>
           &quot;{title}&quot; by {artist}
         </h2>
