@@ -3,13 +3,13 @@ import { FavoriteButton } from "./FavoriteButton";
 import Link from "next/link";
 
 export function ArtPiecePreview({
-  piece,
   slug,
   image,
   title,
   artist,
   isFavorite,
   onToggleFavorite,
+  onSubmitComment,
 }) {
   return (
     <Link href={`./art-pieces/${slug}`}>

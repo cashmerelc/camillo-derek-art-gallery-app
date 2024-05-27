@@ -16,6 +16,7 @@ export default function ArtPieces({ pieces, artPiecesInfo, onToggleFavorite }) {
                   ?.isFavorite
               }
               onToggleFavorite={() => onToggleFavorite(piece.slug)}
+              onSubmitComment={() => onSubmitComment(piece.slug)}
             />
           </li>
         );

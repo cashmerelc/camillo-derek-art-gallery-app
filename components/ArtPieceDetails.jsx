@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { CommentForm } from "@/components/CommentForm";
 
-export function ArtPieceDetails({ pieces }) {
+export function ArtPieceDetails({ pieces, onSubmitComment }) {
   const router = useRouter();
   const { slug } = router.query;
   const currentPiece = pieces.find((piece) => piece.slug === slug);
@@ -36,6 +37,7 @@ export function ArtPieceDetails({ pieces }) {
           </div>
         </div>
       </div>
+      <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
     </>
   );
 }
