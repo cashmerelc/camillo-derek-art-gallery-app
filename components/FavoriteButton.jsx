@@ -7,7 +7,13 @@ export function FavoriteButton({ isFavorite, onToggleFavorite }) {
       isFavorite={isFavorite}
       onClick={onToggleFavorite}
     >
-      <Image src="../assets/heart.svg" alt="Favorite" width={20} height={20} />
+      <Image
+        src="/./assets/like-icon-false.png"
+        alt="Favorite"
+        width={50}
+        height={50}
+        className="favorite-button_image"
+      />
     </button>
   );
 }

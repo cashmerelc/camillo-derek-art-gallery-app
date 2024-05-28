@@ -1,4 +1,4 @@
-import GlobalStyle from "../styles";
+import "../styles/globals.css";
 import useSWR from "swr";
 import { Layout } from "../components/Layout";
 import React, { useState, useEffect } from "react";
@@ -80,7 +80,6 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Layout>
-      <GlobalStyle />
       {artPieces.length > 0 ? (
         <Component
           {...pageProps}
