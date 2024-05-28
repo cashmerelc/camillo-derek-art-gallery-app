@@ -25,8 +25,8 @@ export function ArtPiecePreview({
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
       />
-      <Link href={`./art-pieces/${slug}`}>
-        <h2>&quot;{title}&quot;</h2>
+      <Link href={`./art-pieces/${slug}`} className="link">
+        <h2>{title}</h2>
         <h3>by {artist}</h3>
       </Link>
     </div>
