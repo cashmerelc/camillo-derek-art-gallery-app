@@ -9,11 +9,12 @@ const StyledDetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-self: center;
+  align-self: left;
   margin-top: 2rem;
 `;
 
 const StyledDetailsInfoContainer = styled.div`
+  align-self: left;
   display: flex;
   flex-direction: column;
   margin: 0 3rem;
@@ -30,9 +31,12 @@ const StyledDetailsInfoContainer_Details = styled.div`
 
 const StyledDetailsContainer_Details_Category = styled.div`
   font-weight: bold;
+  margin-top: 2rem;
 `;
 
-const StyledDetailsContainer_Details_Value = styled.div``;
+const StyledDetailsContainer_Details_Value = styled.div`
+  margin-top: 2rem;
+`;
 
 const StyledDetails_CommentSection = styled.div`
   display: flex;
@@ -42,15 +46,17 @@ const StyledDetails_CommentSection = styled.div`
 `;
 const StyledDetails_CommentSection_Headline = styled.div`
   display: flex;
-  width: 100%;
+  flex-direction: row;
+  width: 70vw;
   align-items: center;
+  justify-content: space-around;
   gap: 1rem;
   color: lightgray;
 `;
 
 const StyledDetails_CommentSection_Line = styled.hr`
   height: 1px;
-  width: 30%;
+  width: 70%;
   border: solid 0.5px lightgray;
 `;
 
@@ -79,13 +85,14 @@ export function ArtPieceDetails({ pieces, artPieces, onSubmitComment }) {
       </Link>
       <StyledDetailsContainer>
         <Image
+          className="details-image"
           src={currentPiece.imageSource}
           alt="Art Work"
-          width={500}
-          height={500}
+          width={1000}
+          height={600}
         />
-        <StyledDetailsInfoContainer>
-          <StyledDetailsInfoContainer_Headline>
+        <StyledDetailsInfoContainer className="styled-details-info-container">
+          <StyledDetailsInfoContainer_Headline className="styled-details-info-container_headline">
             <h2>{currentPiece.name}</h2>
             <h3>{currentPiece.artist}</h3>
           </StyledDetailsInfoContainer_Headline>
@@ -111,7 +118,11 @@ export function ArtPieceDetails({ pieces, artPieces, onSubmitComment }) {
           <p>Comments</p>
           <StyledDetails_CommentSection_Line />
         </StyledDetails_CommentSection_Headline>
-        <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
+        <CommentForm
+          slug={slug}
+          onSubmitComment={onSubmitComment}
+          className="comment-form"
+        />
         {comments?.length > 0 ? <Comments comments={comments} /> : ""}
       </StyledDetails_CommentSection>
     </>

@@ -1,0 +1,12 @@
+.no-favorites-message {
+  display: flex;
+  height: 70vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-favorites-message h2 {
+  color: lightgray;
+  font-weight: 100;
+}

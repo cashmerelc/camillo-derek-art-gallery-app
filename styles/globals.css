@@ -1,4 +1,20 @@
 @import "./ArtPiecePreview.css";
+@import "./Comments.css";
+@import "./ArtPieceDetails.css";
+@import "./Navigation.css";
+@import "./Favorites.css";
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 * {
   box-sizing: border-box;
   margin: 0;

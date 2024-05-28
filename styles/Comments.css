@@ -1,0 +1,17 @@
+.comments {
+  margin: 2rem;
+}
+
+.comments li {
+  padding: 2.5rem 0 2.5rem;
+  border-bottom: solid 1px lightgray;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  width: 100px;
+  align-self: center;
+}
+.comment-form {
+  width: 100vw;
+}
