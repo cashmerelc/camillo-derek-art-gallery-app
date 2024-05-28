@@ -9,14 +9,14 @@ const StyledDetailsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 1024px;
   align-self: center;
+  margin-top: 2rem;
 `;
 
 const StyledDetailsInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
+  margin: 0 3rem;
 `;
 
 const StyledDetailsInfoContainer_Headline = styled.div`
@@ -25,26 +25,40 @@ display flex;
 
 const StyledDetailsInfoContainer_Details = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 1.4rem;
 `;
 
 const StyledDetailsContainer_Details_Category = styled.div`
   font-weight: bold;
 `;
 
-const ColorPalette = styled.ul`
+const StyledDetailsContainer_Details_Value = styled.div``;
+
+const StyledDetails_CommentSection = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  flex-direction: column;
+  margin: 0 5rem 10rem;
+  padding-top: 5rem;
+`;
+const StyledDetails_CommentSection_Headline = styled.div`
+  display: flex;
   width: 100%;
+  align-items: center;
+  gap: 1rem;
+  color: lightgray;
+`;
+
+const StyledDetails_CommentSection_Line = styled.hr`
+  height: 1px;
+  width: 30%;
+  border: solid 0.5px lightgray;
 `;
 
 const ColorItem = styled.li`
-  width: 20px;
-  height: 20px;
-  margin: 5px;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
   display: inline-block;
   background-color: ${(props) => props.backgroundColor};
 `;
@@ -66,7 +80,7 @@ export function ArtPieceDetails({ pieces, artPieces, onSubmitComment }) {
       <StyledDetailsContainer>
         <Image
           src={currentPiece.imageSource}
-          alt="go back"
+          alt="Art Work"
           width={500}
           height={500}
         />
@@ -81,19 +95,25 @@ export function ArtPieceDetails({ pieces, artPieces, onSubmitComment }) {
               <p>Genre:</p>
               <p>Colors:</p>
             </StyledDetailsContainer_Details_Category>
-            <div className="art-piece-details_info-container_details_category-value">
+            <StyledDetailsContainer_Details_Value>
               <p>{currentPiece.year}</p>
               <p>{currentPiece.genre}</p>
               {currentPiece.colors.map((color, index) => {
                 return <ColorItem key={index} backgroundColor={color} />;
               })}
-            </div>
+            </StyledDetailsContainer_Details_Value>
           </StyledDetailsInfoContainer_Details>
         </StyledDetailsInfoContainer>
       </StyledDetailsContainer>
-      {comments?.length > 0 ? <Comments comments={comments} /> : ""}
-
-      <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
+      <StyledDetails_CommentSection>
+        <StyledDetails_CommentSection_Headline>
+          <StyledDetails_CommentSection_Line />
+          <p>Comments</p>
+          <StyledDetails_CommentSection_Line />
+        </StyledDetails_CommentSection_Headline>
+        <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
+        {comments?.length > 0 ? <Comments comments={comments} /> : ""}
+      </StyledDetails_CommentSection>
     </>
   );
 }
