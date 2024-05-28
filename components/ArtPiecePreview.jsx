@@ -11,21 +11,24 @@ export function ArtPiecePreview({
   onToggleFavorite,
 }) {
   return (
-    <>
-
-
+    <div className="art-piece-card-container">
       <div className="art-piece-image-container">
-        <Image src={image} alt={title} width={200} height={200} />
+        <Image
+          src={image}
+          alt={title}
+          width={600}
+          height={600}
+          className="art-piece-image"
+        />
       </div>
       <FavoriteButton
         isFavorite={isFavorite}
         onToggleFavorite={onToggleFavorite}
       />
       <Link href={`./art-pieces/${slug}`}>
-        <h2>
-          &quot;{title}&quot; by {artist}
-        </h2>
+        <h2>&quot;{title}&quot;</h2>
+        <h3>by {artist}</h3>
       </Link>
-    </>
+    </div>
   );
 }

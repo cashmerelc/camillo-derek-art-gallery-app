@@ -1,0 +1,25 @@
+@import "./ArtPiecePreview.css";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  font-family: "Montserrat";
+  display: flex;
+  justify-content: center;
+}
+
+textarea {
+  row: 10;
+  width: 50%;
+  resize: none;
+  padding: 1rem;
+  margin-top: 1rem;
+  align-self: center;
+  font-family: "Montserrat";
+}
+label {
+  align-self: center;
+}
