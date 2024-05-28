@@ -2,9 +2,12 @@ import "../styles/globals.css";
 import useSWR from "swr";
 import { Layout } from "../components/Layout";
 import React, { useState, useEffect } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
-  const [artPieces, setArtPieces] = useState([]);
+  const [artPieces, setArtPieces] = useLocalStorageState("art-pieces", {
+    defaultValue: [],
+  });
 
   const fetcher = async (url) => {
     const res = await fetch(url);
@@ -24,10 +27,15 @@ export default function App({ Component, pageProps }) {
     fetcher
   );
   useEffect(() => {
-    if (data) {
+    if (data && artPieces.length === 0) {
       setArtPieces(data);
     }
   }, [data]);
+  // useEffect(() => {
+  //   if (data) {
+  //     setArtPieces(data);
+  //   }
+  // }, [data]);
 
   if (error) return <div>There was an error fetching the art pieces...</div>;
   if (isLoading) return <div>Loading...</div>;
