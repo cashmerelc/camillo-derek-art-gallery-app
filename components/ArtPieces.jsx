@@ -2,7 +2,7 @@ import { ArtPiecePreview } from "./ArtPiecePreview";
 
 export default function ArtPieces({ pieces, artPieces, onToggleFavorite }) {
   return (
-    <ul>
+    <ul className="art-pieces-container">
       {pieces.map((piece) => {
         const favoriteStatus = piece.isFavorite;
         return (

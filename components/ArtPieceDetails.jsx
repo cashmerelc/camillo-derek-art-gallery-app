@@ -10,7 +10,7 @@ const StyledDetailsContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   align-self: left;
-  margin-top: 2rem;
+  margin-top: 10rem;
 `;
 
 const StyledDetailsInfoContainer = styled.div`
@@ -88,7 +88,7 @@ export function ArtPieceDetails({ pieces, artPieces, onSubmitComment }) {
           className="details-image"
           src={currentPiece.imageSource}
           alt="Art Work"
-          width={1000}
+          width={990}
           height={600}
         />
         <StyledDetailsInfoContainer className="styled-details-info-container">
