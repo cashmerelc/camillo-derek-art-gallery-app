@@ -4,7 +4,11 @@ import { ArtPiecePreview } from "./ArtPiecePreview";
 export default function Favorites({ artPieces, onToggleFavorite }) {
   const favoritePieces = artPieces.filter((piece) => piece.isFavorite);
   if (favoritePieces.length === 0) {
-    return <div>No favorites yet.</div>;
+    return (
+      <div className="no-favorites-message">
+        <h2>You have not yet selected a favorite</h2>
+      </div>
+    );
   }
   return (
     <div>

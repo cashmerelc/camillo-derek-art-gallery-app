@@ -32,18 +32,18 @@ const StyledLink = styled(Link)`
 
 export function Navigation() {
   return (
-    <StyledNavBar>
-      <StyledNavList>
-        <StyledNavItem>
-          <StyledLink href="/">Spotlight</StyledLink>
-        </StyledNavItem>
-        <StyledNavItem>
-          <StyledLink href="/art-pieces">Art Pieces</StyledLink>
-        </StyledNavItem>
-        <StyledNavItem>
-          <StyledLink href="/favorites">Favorites</StyledLink>
-        </StyledNavItem>
-      </StyledNavList>
-    </StyledNavBar>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">Spotlight</a>
+        </li>
+        <li>
+          <a href="/art-pieces">Art Pieces</a>
+        </li>
+        <li>
+          <a href="/favorites">Favorites</a>
+        </li>
+      </ul>
+    </nav>
   );
 }

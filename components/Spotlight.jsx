@@ -5,19 +5,22 @@ export function Spotlight({ pieces, onToggleFavorite, isFavorite }) {
   return (
     <ul>
       <li>
-        <div className="art-piece-image-container">
-          <Image
-            src={SpotlightSelection.imageSource}
-            alt={SpotlightSelection.name}
-            width={200}
-            height={200}
-          />
-          <FavoriteButton
-            onToggleFavorite={() => onToggleFavorite(SpotlightSelection.slug)}
-          />
-        </div>
+        <div className="art-piece-card-container">
+          <div className="art-piece-image-container">
+            <Image
+              src={SpotlightSelection.imageSource}
+              alt={SpotlightSelection.name}
+              width={800}
+              height={800}
+              className="art-piece-image"
+            />
+            <FavoriteButton
+              onToggleFavorite={() => onToggleFavorite(SpotlightSelection.slug)}
+            />
+          </div>
 
-        <h2> {SpotlightSelection.artist}</h2>
+          <h2> {SpotlightSelection.artist}</h2>
+        </div>
       </li>
     </ul>
   );
