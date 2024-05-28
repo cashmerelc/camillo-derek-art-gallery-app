@@ -17,7 +17,7 @@ export function ArtPiecePreview({
           src={image}
           alt={title}
           width={600}
-          height={600}
+          height={400}
           className="art-piece-image"
         />
       </div>

@@ -3,7 +3,7 @@ import { FavoriteButton } from "./FavoriteButton";
 export function Spotlight({ pieces, onToggleFavorite, isFavorite }) {
   const SpotlightSelection = pieces[Math.floor(Math.random() * pieces.length)];
   return (
-    <ul>
+    <ul className="favorite-page">
       <li>
         <div className="art-piece-card-container">
           <div className="art-piece-image-container">

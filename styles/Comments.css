@@ -9,9 +9,24 @@
 
 .submit-button {
   margin-top: 1rem;
-  width: 100px;
   align-self: center;
+  background-color: lightgray;
+  border: none;
+  padding: 0.5rem 2rem;
+  color: rgb(111, 111, 111);
 }
 .comment-form {
   width: 100vw;
+}
+textarea {
+  width: 50%;
+  resize: none;
+  padding: 1rem;
+  margin-top: 1rem;
+  align-self: center;
+  font-family: "Montserrat";
+}
+
+textarea:focus {
+  border: none;
 }

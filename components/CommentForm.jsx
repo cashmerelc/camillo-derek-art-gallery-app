@@ -32,19 +32,18 @@ export function CommentForm({ slug, onSubmitComment }) {
         id="add-comment"
         name="add-comment"
         placeholder="Add a Comment..."
+        rows="5"
       ></textarea>
       <button
         className="submit-button"
         name="submit-comment"
         onClick={() => {
-
           if (document.getElementById("add-comment").value === "") {
             alert("Comment input cannot be empty");
           } else {
             onSubmitComment(slug, document.getElementById("add-comment").value);
             document.getElementById("add-comment").value = "";
           }
-
         }}
       >
         Send

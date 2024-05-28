@@ -11,7 +11,7 @@ export default function Favorites({ artPieces, onToggleFavorite }) {
     );
   }
   return (
-    <div>
+    <div className="favorite-page">
       {favoritePieces.map((favoritePiece) => (
         <div key={favoritePiece.slug}>
           <ArtPiecePreview
