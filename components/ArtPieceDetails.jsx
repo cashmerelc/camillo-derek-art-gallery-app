@@ -80,10 +80,11 @@ export function ArtPieceDetails({ pieces, artPieces, onSubmitComment }) {
 
   return (
     <>
+      <StyledDetailsContainer>
       <Link href={"/art-pieces"}>
         <Image src="/go-back-icon.png" width={20} height={20} alt="go back" />
       </Link>
-      <StyledDetailsContainer>
+      
         <Image
           className="details-image"
           src={currentPiece.imageSource}
